@@ -1,14 +1,17 @@
-import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-import eslintConfigPrettier from "eslint-config-prettier/flat";
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
+import reactX from 'eslint-plugin-react-x';
+import reactDom from 'eslint-plugin-react-dom';
+// 如果项目使用的ESLint可能会出现与 Prettier 的格式化规则冲突的情况。
+// 为了避免这种情况,可以使用 eslint-config-prettier 来禁用所有与 Prettier 冲突的 ESLint 规则 。
+// 不过截止目前还没发现有冲突的地方，因此先不用加这个
+// import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 export default tseslint.config(
-  { ignores: ["dist"] },
+  { ignores: ['dist'] },
   {
     extends: [
       js.configs.recommended,
@@ -18,7 +21,7 @@ export default tseslint.config(
       // Optionally, add this for stylistic rules
       ...tseslint.configs.stylisticTypeChecked,
     ],
-    files: ["**/*.{ts,tsx}"],
+    files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -28,21 +31,20 @@ export default tseslint.config(
       },
     },
     plugins: {
-      "react-hooks": reactHooks,
-      "react-refresh": reactRefresh,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
       'react-x': reactX,
       'react-dom': reactDom,
+      // 'prettier',
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-        // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-      "react-refresh/only-export-components": [
-        "warn",
-        { allowConstantExport: true },
-      ],
+      // Enable its recommended typescript rules
+      ...reactX.configs['recommended-typescript'].rules,
+      ...reactDom.configs.recommended.rules,
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      '@typescript-eslint/no-non-null-assertion': 'off',
+      'react-hooks/exhaustive-deps': 'error',
     },
   },
-  eslintConfigPrettier,
 );
