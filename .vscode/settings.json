@@ -7,5 +7,6 @@
   "explorer.compactFolders": false,
   "editor.formatOnSave": true,
   "git.autorefresh": true,
+  "stylelint.validate": ["less", "css"],
   "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
