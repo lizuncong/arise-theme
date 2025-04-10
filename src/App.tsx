@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
-
+import styles from './index.module.less';
+import './index.less';
 function App() {
   const [count, setCount] = useState(0);
   const a = 1;
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className={styles.container}>
         <a className="dfd" href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
