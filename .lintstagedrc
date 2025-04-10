@@ -3,7 +3,7 @@
     "eslint --fix",
     "prettier --write"
   ],
-  "**/*.less": [
+  "**/*.{less,css}": [
     "stylelint --fix",
     "prettier --write"
   ]
