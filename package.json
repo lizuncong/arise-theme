@@ -9,8 +9,10 @@
     "lint": "eslint src/**/*.\"{ts,tsx}\"",
     "lint:fix": "npm run lint -- --fix",
     "preview": "vite preview",
+    "prepare": "husky",
     "stylelint:fix": "stylelint --fix src/**/*.less",
-    "lint:style": "stylelint src/**/*.less"
+    "lint:style": "stylelint src/**/*.less",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -40,6 +42,9 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-config-standard-less": "^3.0.1",
     "stylelint-declaration-block-no-ignored-properties": "^2.8.0",
-    "stylelint-order": "^6.0.4"
+    "stylelint-order": "^6.0.4",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "husky": "9.1.6"
   }
 }

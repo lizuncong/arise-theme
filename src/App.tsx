@@ -8,6 +8,7 @@ function App() {
   const [count, setCount] = useState(0);
   const a = 1;
   useEffect(() => {
+    console.log(a);
     console.log(count);
   }, []);
 
