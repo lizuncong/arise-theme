@@ -1,12 +1,10 @@
-import Button from '@/components/Button';
+import './styles/normalize.css';
 
-import styles from './App.module.css';
+import { RouterProvider } from 'react-router';
+
+import router from './routes';
 function App() {
-  return (
-    <div className={styles.container}>
-      入口<Button></Button>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
