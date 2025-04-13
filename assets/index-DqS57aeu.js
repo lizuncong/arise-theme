@@ -1,0 +1,1 @@
+import{r as n,j as o}from"./index-R26JkAoa.js";const e="_container_4ctkw_1",s={container:e},i=n.memo(t=>(console.log("拼贴...",t),o.jsx("div",{className:[s.container,`section_${t.sectionId}`].join(" "),children:"拼贴"})));export{i as default};

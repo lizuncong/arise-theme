@@ -1,1 +1,0 @@
-import{r as n,j as o}from"./index-UIFaBWEQ.js";const t="_container_xdina_1",s={container:t},a=n.memo(e=>(console.log("轮播图...",e),o.jsx("div",{className:[s.container,`section_${e.sectionId}`].join(" "),children:"轮播图"})));export{a as default};
