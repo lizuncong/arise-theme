@@ -33,7 +33,7 @@ const Home = memo(() => {
       <div className={styles.header}>{t('home.title')}</div>
       {sectionConfigData.order.map((sectionId) => {
         const seConfigData = sectionConfigData.sections[sectionId];
-        if (!seConfigData) return;
+        if (!seConfigData || seConfigData.disabled) return;
         const Comp = SectionCompMap[seConfigData.type];
         return <Comp key={seConfigData.sectionId} {...seConfigData} />;
       })}
