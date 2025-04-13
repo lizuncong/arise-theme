@@ -2,6 +2,7 @@ import { lazy, memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppSelector } from '@/store/hooks';
+import { SectionTypeEnum } from '@/types/section';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
 
 import { useInitEditor } from './hooks/useInitEditor';
@@ -13,9 +14,9 @@ const Splicing = lazy(() => import(/* webpackChunkName: 'splicing' */ '@/section
 
 // key要和section/schema.json里面的type对应
 const SectionCompMap: any = {
-  'featured-slideshow': FeatureSlideShow,
-  video: Video,
-  'multi-media-splicing': Splicing,
+  [SectionTypeEnum.SlideShow]: FeatureSlideShow,
+  [SectionTypeEnum.Video]: Video,
+  [SectionTypeEnum.MultiMediaSplicing]: Splicing,
 };
 const Home = memo(() => {
   const { t } = useTranslation();

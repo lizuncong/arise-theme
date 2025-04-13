@@ -1,9 +1,11 @@
-import featureSliceShowSchema from './FeaturedSlideShow/schema.json';
-import spliceSchema from './MultiMediaSplicing/schema.json';
-import videoSchema from './Video/schema.json';
+import { SectionTypeEnum } from '@/types/section.ts';
+
+import featureSliceShowSchema from './FeaturedSlideShow/schema.ts';
+import spliceSchema from './MultiMediaSplicing/schema.ts';
+import videoSchema from './Video/schema.ts';
 
 export const allSectionSchema = {
-  'featured-slideshow': featureSliceShowSchema, // key要和featureSliceShowSchema.type对应
-  video: videoSchema, // key要和videoSchema.type对应
-  'multi-media-splicing': spliceSchema, // key要和spliceSchema.type对应
+  [SectionTypeEnum.SlideShow]: featureSliceShowSchema,
+  [SectionTypeEnum.Video]: videoSchema,
+  [SectionTypeEnum.MultiMediaSplicing]: spliceSchema,
 };

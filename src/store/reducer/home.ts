@@ -6,7 +6,7 @@
  * **/
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { SectionConfigDataStruct } from '@/types/section';
+import { BlockTypeEnum, SectionConfigDataStruct, SectionTypeEnum } from '@/types/section';
 
 import { createAppSlice } from '../createAppSlice';
 
@@ -20,11 +20,11 @@ const initialState: HomeSliceState = {
     sections: {
       '1744420001433c7355e4': {
         sectionId: '1744420001433c7355e4',
-        type: 'featured-slideshow',
+        type: SectionTypeEnum.SlideShow,
         disabled: false,
         settingsData: {
           disabled: false,
-          type: 'featured-slideshow',
+          type: SectionTypeEnum.SlideShow,
           settings: {
             content_height: {
               value: 100,
@@ -47,8 +47,7 @@ const initialState: HomeSliceState = {
           },
           blocks: {
             '1744420001433f23a0d7': {
-              type: 'image',
-              icon: 'image',
+              type: BlockTypeEnum.image,
               settings: {
                 image_text_layout: {
                   value: '100%',
@@ -138,11 +137,9 @@ const initialState: HomeSliceState = {
                   value: '#FFFFFF',
                 },
               },
-              blockId: '1744420001433f23a0d7',
             },
             '1744420001434b525250': {
-              type: 'image',
-              icon: 'image',
+              type: BlockTypeEnum.image,
               settings: {
                 image_text_layout: {
                   value: '100%',
@@ -297,7 +294,6 @@ const initialState: HomeSliceState = {
                   },
                 },
               },
-              blockId: '1744420001434b525250',
             },
           },
           block_order: ['1744420001433f23a0d7', '1744420001434b525250'],
@@ -305,11 +301,11 @@ const initialState: HomeSliceState = {
       },
       '1744420056877bdb1ba2': {
         sectionId: '1744420056877bdb1ba2',
-        type: 'video',
+        type: SectionTypeEnum.Video,
         disabled: false,
         settingsData: {
           disabled: false,
-          type: 'video',
+          type: SectionTypeEnum.Video,
           settings: {
             title: {
               value: '这是一个视频',
@@ -350,11 +346,11 @@ const initialState: HomeSliceState = {
       },
       '1744420074063e922eb8': {
         sectionId: '1744420074063e922eb8',
-        type: 'multi-media-splicing',
+        type: SectionTypeEnum.MultiMediaSplicing,
         disabled: false,
         settingsData: {
           disabled: false,
-          type: 'multi-media-splicing',
+          type: SectionTypeEnum.MultiMediaSplicing,
           settings: {
             title: {
               value: '这是拼贴',
@@ -380,7 +376,7 @@ const initialState: HomeSliceState = {
           },
           blocks: {
             '1744420106040f8a3549': {
-              type: 'image',
+              type: BlockTypeEnum.image,
               settings: {
                 image_padding: {
                   value: 'cover',
@@ -450,7 +446,7 @@ const initialState: HomeSliceState = {
               },
             },
             '17444200740631e4419a': {
-              type: 'video',
+              type: BlockTypeEnum.video,
               settings: {
                 external_video: {
                   value: '',
@@ -527,10 +523,9 @@ const initialState: HomeSliceState = {
                   },
                 },
               },
-              blockId: '17444200740631e4419a',
             },
             '17444200740637a13470': {
-              type: 'product',
+              type: BlockTypeEnum.product,
               settings: {
                 product_hover_show_next: {
                   value: false,
@@ -542,7 +537,6 @@ const initialState: HomeSliceState = {
                   value: null,
                 },
               },
-              blockId: '17444200740637a13470',
             },
           },
           block_order: ['1744420106040f8a3549', '17444200740631e4419a', '17444200740637a13470'],

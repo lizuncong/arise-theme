@@ -1,24 +1,98 @@
+type SectionId = string;
+type BlockId = string;
+type SettingId = string;
 export interface SectionConfigDataStruct {
   order: string[];
-  sections: Record<string, SectionConfigSchema | undefined>;
+  sections: Record<SectionId, SectionConfigSchema | undefined>;
 }
 export interface SectionConfigSchema {
-  sectionId: string;
-  type: string;
+  sectionId: SectionId;
+  type: SectionTypeEnum;
   disabled: boolean;
   settingsData: {
     disabled: boolean;
-    type: string;
-    block_order: string[];
-    settings: Record<string, { value: any }>;
-    blocks: Record<string, SectionBlockConfigSchema>;
+    type: SectionTypeEnum;
+    settings: Record<SettingId, { value: SettingDefaultValueType; [propName: string]: any }>;
+    blocks: Record<BlockId, SectionBlockConfigSchema>;
+    block_order: BlockId[];
   };
-  [propsName: string]: any;
 }
 
 interface SectionBlockConfigSchema {
-  type: string;
-  icon?: string;
-  blockId?: string;
-  settings: Record<string, { value: any; [propsName: string]: any }>;
+  type: BlockTypeEnum;
+  settings: Record<SettingId, { value: SettingDefaultValueType; [propName: string]: any }>;
+}
+
+/** =================================== schema 类型 ================================================= **/
+
+export enum SectionTypeEnum {
+  SlideShow = 'featured-slideshow',
+  Video = 'video',
+  MultiMediaSplicing = 'multi-media-splicing',
+}
+
+// 控件类型
+export enum WidgetType {
+  range = 'range',
+  switch = 'switch',
+  group_header = 'group_header',
+  select = 'select',
+  image_picker = 'image_picker',
+  video = 'video',
+  video_url = 'video_url',
+  text = 'text',
+  product = 'product',
+  product_picker = 'product_picker',
+  collection_picker = 'collection_picker',
+  url = 'url',
+}
+export enum BlockTypeEnum {
+  image = 'image',
+  video = 'video',
+  product = 'product',
+  collection = 'collection',
+}
+
+export enum BlockIconTypeEnum {
+  image = 'image',
+  normal = 'normal',
+  video = 'video',
+}
+
+type SettingDefaultValueType = number | string | boolean | null | Record<string, any>;
+interface SectionSettingSchemaStruct {
+  type: WidgetType;
+  id?: SettingId;
+  label: string;
+  info?: string;
+  default?: SettingDefaultValueType;
+  [propsName: string]: any;
+}
+
+interface SectionBlockSchemaStruct {
+  type: BlockTypeEnum;
+  icon: BlockIconTypeEnum;
+  name: string;
+  settings: SectionSettingSchemaStruct[];
+}
+interface SectionPresetStruct {
+  category_index: number;
+  category: string;
+  name: string;
+  settings: Record<SettingId, SettingDefaultValueType>;
+  blocks?: {
+    type: BlockTypeEnum;
+    settings: Record<SettingId, SettingDefaultValueType>;
+  }[];
+}
+export interface SectionSchemaStruct {
+  name: string;
+  class?: string;
+  icon?: BlockIconTypeEnum;
+  block_info?: string;
+  type: SectionTypeEnum;
+  max_blocks?: number;
+  settings?: SectionSettingSchemaStruct[];
+  blocks?: SectionBlockSchemaStruct[];
+  presets?: SectionPresetStruct[];
 }
