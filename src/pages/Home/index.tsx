@@ -1,13 +1,14 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { useInitEditor } from './hooks/useInitEditor';
 import styles from './index.module.less';
 const Home = memo(() => {
   const { t } = useTranslation();
-
+  useInitEditor();
   return (
     <div className={styles.home}>
-      首页 <div>{t('description.part1')}</div>
+      <div>{t('home.title')}</div>
     </div>
   );
 });

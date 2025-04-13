@@ -1,5 +1,5 @@
 {
-  "name": "t:sections.video.name",
+  "name": "sections.video.name",
   "icon": "video",
   "class": "section",
   "settings": [
@@ -7,7 +7,7 @@
       "type": "text",
       "id": "title",
       "default": "",
-      "label": "t:sections.video.settings.title.label"
+      "label": "sections.video.settings.title.label"
     },
     {
       "type": "select",
@@ -15,78 +15,78 @@
       "options": [
         {
           "value": "title5",
-          "label": "t:sections.video.settings.title_size.options__0.label"
+          "label": "sections.video.settings.title_size.options__0.label"
         },
         {
           "value": "title3",
-          "label": "t:sections.video.settings.title_size.options__1.label"
+          "label": "sections.video.settings.title_size.options__1.label"
         },
         {
           "value": "title2",
-          "label": "t:sections.video.settings.title_size.options__2.label"
+          "label": "sections.video.settings.title_size.options__2.label"
         }
       ],
       "default": "title3",
-      "label": "t:sections.video.settings.title_size.label"
+      "label": "sections.video.settings.title_size.label"
     },
     {
       "type": "image_picker",
       "id": "cover",
-      "label": "t:sections.video.settings.cover.label"
+      "label": "sections.video.settings.cover.label"
     },
     {
       "type": "video",
       "id": "internal_video",
-      "label": "t:sections.video.settings.internal_video.label"
+      "label": "sections.video.settings.internal_video.label"
     },
     {
       "type": "video_url",
       "id": "external_video",
       "format": "video",
-      "label": "t:sections.video.settings.external_video.label",
+      "label": "sections.video.settings.external_video.label",
       "placeholder": "https://www.youtube.com/watch?v=V7BEzkRBp_g",
-      "info": "t:sections.video.settings.external_video.info"
+      "info": "sections.video.settings.external_video.info"
     },
     {
       "type": "switch",
       "id": "video_auto_play",
-      "label": "t:sections.video.settings.video_auto_play.label",
-      "info": "t:sections.video.settings.video_auto_play.info",
+      "label": "sections.video.settings.video_auto_play.label",
+      "info": "sections.video.settings.video_auto_play.info",
       "default": false
     },
     {
       "type": "switch",
       "id": "full_width",
-      "label": "t:sections.video.settings.full_width.label",
+      "label": "sections.video.settings.full_width.label",
       "default": true
     },
     {
       "type": "select",
       "id": "color_scheme",
-      "label": "t:sections.video.settings.color_scheme.label",
+      "label": "sections.video.settings.color_scheme.label",
       "options": [
         {
           "value": "none",
-          "label": "t:sections.video.settings.color_scheme.options__0.label"
+          "label": "sections.video.settings.color_scheme.options__0.label"
         },
         {
           "value": "1",
-          "label": "t:sections.video.settings.color_scheme.options__1.label"
+          "label": "sections.video.settings.color_scheme.options__1.label"
         },
         {
           "value": "2",
-          "label": "t:sections.video.settings.color_scheme.options__2.label"
+          "label": "sections.video.settings.color_scheme.options__2.label"
         },
         {
           "value": "3",
-          "label": "t:sections.video.settings.color_scheme.options__3.label"
+          "label": "sections.video.settings.color_scheme.options__3.label"
         }
       ],
       "default": "none"
     },
     {
       "type": "group_header",
-      "label": "t:sections.video.settings.group_header__0.label"
+      "label": "sections.video.settings.group_header__0.label"
     },
     {
       "type": "range",
@@ -95,7 +95,7 @@
       "max": 100,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.video.settings.padding_top.label",
+      "label": "sections.video.settings.padding_top.label",
       "default": 0
     },
     {
@@ -105,15 +105,15 @@
       "max": 100,
       "step": 2,
       "unit": "px",
-      "label": "t:sections.video.settings.padding_bottom.label",
+      "label": "sections.video.settings.padding_bottom.label",
       "default": 0
     }
   ],
   "presets": [
     {
       "category_index": 1,
-      "category": "t:sections.video.presets.presets__0.category",
-      "name": "t:sections.video.presets.presets__0.name",
+      "category": "sections.video.presets.presets__0.category",
+      "name": "sections.video.presets.presets__0.name",
       "icon": "video",
       "settings": {
         "title": "",
