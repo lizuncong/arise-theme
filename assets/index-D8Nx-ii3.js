@@ -1,0 +1,1 @@
+import{r as t,j as n}from"./index-UIFaBWEQ.js";const e="_container_tqsxp_1",s={container:e},r=t.memo(o=>(console.log("视频...",o),n.jsx("div",{className:[s.container,`section_${o.sectionId}`].join(" "),children:"视频"})));export{r as default};
