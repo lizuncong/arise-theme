@@ -230,11 +230,11 @@
       "presets": {
         "presets__0": {
           "category": "图文展示",
-          "name": "特色轮播图"
+          "name": "特色轮播图1"
         },
         "presets__1": {
           "category": "图文展示",
-          "name": "特色轮播图222"
+          "name": "特色轮播图2"
         }
       }
     },
