@@ -1,6 +1,7 @@
 {
   "name": "sections.video.name",
   "icon": "video",
+  "type": "video",
   "class": "section",
   "settings": [
     {

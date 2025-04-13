@@ -2,6 +2,7 @@
   "name": "sections.featured-slideshow.name",
   "class": "section index-section--hero",
   "block_info": "sections.featured-slideshow.block_info",
+  "type": "featured-slideshow",
   "max_blocks": 10,
   "settings": [
     {

@@ -2,6 +2,7 @@
   "name": "sections.multi-media-splicing.name",
   "icon": "video",
   "max_blocks": 3,
+  "type": "multi-media-splicing",
   "class": "section",
   "blocks": [
     {

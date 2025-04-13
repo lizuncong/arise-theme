@@ -560,8 +560,11 @@ export const homeSlice = createAppSlice({
     changeHomeState: create.reducer((state, action: PayloadAction<Partial<HomeSliceState>>) => {
       Object.assign(state, { ...action.payload });
     }),
+    updateSectionConfigData: create.reducer((state, action: PayloadAction<SectionConfigDataStruct>) => {
+      state.sectionConfigData = action.payload;
+    }),
   }),
   selectors: {},
 });
 
-export const { changeHomeState } = homeSlice.actions;
+export const { changeHomeState, updateSectionConfigData } = homeSlice.actions;
