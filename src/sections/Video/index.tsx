@@ -14,10 +14,10 @@ const Video = memo((props: SectionConfigSchema) => {
       <div className={styles.settingheader}>Section Settings</div>
       <div className={styles.settings}>
         {Object.keys(sectionSetting).map((key) => {
-          let value = sectionSetting[key].value;
-          if (typeof value === 'object') {
-            value = JSON.stringify(value);
-          }
+          const value = JSON.stringify(sectionSetting[key].value);
+          // if (typeof value === 'object') {
+          //   value = JSON.stringify(value);
+          // }
           return (
             <div className={styles.settingitem} key={key}>
               <span>{key}：</span>
@@ -36,10 +36,10 @@ const Video = memo((props: SectionConfigSchema) => {
               <div className={[styles.settings, styles.block].join(' ')}>
                 <div>
                   {Object.keys(blockConfig.settings).map((key) => {
-                    let value = blockConfig.settings[key].value;
-                    if (typeof value === 'object') {
-                      value = JSON.stringify(value);
-                    }
+                    const value = JSON.stringify(blockConfig.settings[key].value);
+                    // if (typeof value === 'object') {
+                    //   value = JSON.stringify(value);
+                    // }
                     return (
                       <div className={styles.settingitem} key={key}>
                         <span>{key}：</span>
