@@ -25,9 +25,11 @@ export const useListenerMsgFromEditor = () => {
       );
       if (data?.blockId) {
         const blockEl = document.getElementById(data.blockId);
+
         blockEl?.scrollIntoView();
       } else if (data?.sectionId) {
         const sectionEl = document.getElementById(data.sectionId);
+
         sectionEl?.scrollIntoView();
       }
     });

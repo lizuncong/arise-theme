@@ -9,7 +9,7 @@ const FeaturedSlideShow = memo((props: SectionConfigSchema) => {
   const sectionSetting = settingsData.settings;
   const blocks = settingsData.blocks || {};
   return (
-    <div id={`section_${sectionId}`} className={[styles.container].join(' ')}>
+    <div id={sectionId} className={[styles.container].join(' ')}>
       <div className={styles.sectionType}>{type}</div>
       <div className={styles.settingheader}>Section Settings</div>
       <div className={styles.settings}>
@@ -31,7 +31,7 @@ const FeaturedSlideShow = memo((props: SectionConfigSchema) => {
           const blockConfig = blocks[blockId];
           if (!blockConfig) return;
           return (
-            <div id={`block_${blockId}`} key={blockId}>
+            <div id={blockId} key={blockId}>
               <div className={styles.blocktype}>{blockConfig.type}</div>
               <div className={[styles.settings, styles.block].join(' ')}>
                 <div>
