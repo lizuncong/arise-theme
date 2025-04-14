@@ -2,7 +2,7 @@ import { BlockIconTypeEnum, BlockTypeEnum, SectionSchemaStruct, SectionTypeEnum,
 
 const schema: SectionSchemaStruct = {
   name: 'sections.multi-media-splicing.name',
-  icon: BlockIconTypeEnum.image,
+  icon: BlockIconTypeEnum.normal,
   max_blocks: 3,
   type: SectionTypeEnum.MultiMediaSplicing,
   class: 'section',

@@ -5,6 +5,7 @@ const schema: SectionSchemaStruct = {
   class: 'section index-section--hero',
   block_info: 'sections.featured-slideshow.block_info',
   type: SectionTypeEnum.SlideShow,
+  icon: BlockIconTypeEnum.image,
   max_blocks: 10,
   settings: [
     {
