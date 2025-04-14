@@ -1,5 +1,45 @@
 .container {
-  height: 100px;
   margin-bottom: 20px;
-  background-color: red;
+  padding: 0 20px;
+
+  .sectionType {
+    margin-bottom: 12px;
+    font-size: 32px;
+  }
+
+  .settingheader {
+    margin-bottom: 12px;
+    padding-left: 16px;
+    font-size: 18px;
+  }
+
+  .settings {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 32px;
+    font-size: 16px;
+
+    .settingitem {
+      width: 50%;
+      margin-bottom: 6px;
+    }
+  }
+
+  .blockContainer {
+    display: flex;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .blocktype {
+    padding-left: 16px;
+  }
+
+  .block {
+    flex-direction: column;
+
+    .settingitem {
+      width: 100%;
+    }
+  }
 }

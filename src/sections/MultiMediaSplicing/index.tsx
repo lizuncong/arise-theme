@@ -1,10 +1,60 @@
 import { memo } from 'react';
 
-import styles from './index.module.less';
-const MultiMediaSplicing = memo((props: any) => {
-  console.log('拼贴...', props);
+import { SectionConfigSchema } from '@/types/section';
 
-  return <div className={[styles.container, `section_${props.sectionId}`].join(' ')}>拼贴</div>;
+import styles from './index.module.less';
+const MultiMediaSplicing = memo((props: SectionConfigSchema) => {
+  const { settingsData, type, sectionId } = props;
+  const blockOrder = settingsData.block_order || [];
+  const sectionSetting = settingsData.settings;
+  const blocks = settingsData.blocks || {};
+  return (
+    <div className={[styles.container, `section_${sectionId}`].join(' ')}>
+      <div className={styles.sectionType}>{type}</div>
+      <div className={styles.settingheader}>Section Settings</div>
+      <div className={styles.settings}>
+        {Object.keys(sectionSetting).map((key) => {
+          let value = sectionSetting[key].value;
+          if (typeof value === 'object') {
+            value = JSON.stringify(value);
+          }
+          return (
+            <div className={styles.settingitem} key={key}>
+              <span>{key}：</span>
+              {value}
+            </div>
+          );
+        })}
+      </div>
+      <div className={styles.blockContainer}>
+        {blockOrder.map((blockId) => {
+          const blockConfig = blocks[blockId];
+          if (!blockConfig) return;
+          return (
+            <div key={blockId}>
+              <div className={styles.blocktype}>{blockConfig.type}</div>
+              <div className={[styles.settings, styles.block].join(' ')}>
+                <div>
+                  {Object.keys(blockConfig.settings).map((key) => {
+                    let value = blockConfig.settings[key].value;
+                    if (typeof value === 'object') {
+                      value = JSON.stringify(value);
+                    }
+                    return (
+                      <div className={styles.settingitem} key={key}>
+                        <span>{key}：</span>
+                        {value}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 });
 
 export default MultiMediaSplicing;

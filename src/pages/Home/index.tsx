@@ -1,8 +1,8 @@
-import { lazy, memo, useEffect } from 'react';
+import { JSX, lazy, LazyExoticComponent, memo, MemoExoticComponent, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useAppSelector } from '@/store/hooks';
-import { SectionTypeEnum } from '@/types/section';
+import { SectionConfigSchema, SectionTypeEnum } from '@/types/section';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
 
 import { useInitEditor } from './hooks/useInitEditor';
@@ -13,7 +13,10 @@ const Video = lazy(() => import(/* webpackChunkName: 'video' */ '@/sections/Vide
 const Splicing = lazy(() => import(/* webpackChunkName: 'splicing' */ '@/sections/MultiMediaSplicing'));
 
 // key要和section/schema.json里面的type对应
-const SectionCompMap: any = {
+const SectionCompMap: Record<
+  SectionTypeEnum,
+  LazyExoticComponent<MemoExoticComponent<(props: SectionConfigSchema) => JSX.Element>>
+> = {
   [SectionTypeEnum.SlideShow]: FeatureSlideShow,
   [SectionTypeEnum.Video]: Video,
   [SectionTypeEnum.MultiMediaSplicing]: Splicing,
