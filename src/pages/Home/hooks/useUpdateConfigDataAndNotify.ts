@@ -1,8 +1,8 @@
 import { useCallback, useRef } from 'react';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
-import { updateSectionConfigData } from '@/store/reducer/home';
-import { SectionConfigDataStruct, SectionConfigSchema } from '@/types/section';
+import { changeHomeState, updateSectionConfigData } from '@/store/reducer/home';
+import { CurrentEditingFormType, SectionConfigDataStruct, SectionConfigSchema } from '@/types/section';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
 
 // 更新配置项的信息
@@ -11,16 +11,28 @@ export const useUpdateConfigData = () => {
   const sectionConfigData = useAppSelector((state) => state.home.sectionConfigData);
   const sectionConfigDataRef = useRef(sectionConfigData);
   sectionConfigDataRef.current = sectionConfigData;
-
+  const updateCurrentEditingForm = useCallback(
+    (currentEditingForm: CurrentEditingFormType | undefined, shouldNotifyEditor = true) => {
+      dispatch(
+        changeHomeState({
+          currentEditingForm,
+        }),
+      );
+      if (shouldNotifyEditor) {
+        iframeCommunicator.notifyCurrentEditingFormChange(currentEditingForm);
+      }
+    },
+    [dispatch],
+  );
   const updateSectionConfigOrder = useCallback(
-    (newOrder: string[], shouldNotifyIframe = false) => {
+    (newOrder: string[], shouldNotifyEditor = false) => {
       dispatch(
         updateSectionConfigData({
           ...sectionConfigDataRef.current,
           order: newOrder,
         }),
       );
-      if (shouldNotifyIframe) {
+      if (shouldNotifyEditor) {
         iframeCommunicator.notifySectionConfigOrderChange(newOrder);
       }
     },
@@ -28,9 +40,9 @@ export const useUpdateConfigData = () => {
   );
 
   const updateAllSectionConfigData = useCallback(
-    (configData: SectionConfigDataStruct, shouldNotifyIframe = false) => {
+    (configData: SectionConfigDataStruct, shouldNotifyEditor = false) => {
       dispatch(updateSectionConfigData(configData));
-      if (shouldNotifyIframe) {
+      if (shouldNotifyEditor) {
         iframeCommunicator.notifySectionConfigDataChange(configData);
       }
     },
@@ -38,14 +50,14 @@ export const useUpdateConfigData = () => {
   );
 
   const updateSectionConfigSections = useCallback(
-    (sections: Record<string, SectionConfigSchema | undefined>, shouldNotifyIframe = false) => {
+    (sections: Record<string, SectionConfigSchema | undefined>, shouldNotifyEditor = false) => {
       dispatch(
         updateSectionConfigData({
           ...sectionConfigDataRef.current,
           sections: sections,
         }),
       );
-      if (shouldNotifyIframe) {
+      if (shouldNotifyEditor) {
         iframeCommunicator.notifySectionConfigSectionsChange(sections);
       }
     },
@@ -53,7 +65,7 @@ export const useUpdateConfigData = () => {
   );
 
   const updateSectionConfigSectionBySectionId = useCallback(
-    (sectionId: string, section: SectionConfigSchema | undefined, shouldNotifyIframe = false) => {
+    (sectionId: string, section: SectionConfigSchema | undefined, shouldNotifyEditor = false) => {
       const newV = {
         ...sectionConfigDataRef.current,
         sections: {
@@ -62,7 +74,7 @@ export const useUpdateConfigData = () => {
         },
       };
       dispatch(updateSectionConfigData(newV));
-      if (shouldNotifyIframe) {
+      if (shouldNotifyEditor) {
         iframeCommunicator.notifySectionConfigSectionChange(sectionId, section);
       }
     },
@@ -74,5 +86,6 @@ export const useUpdateConfigData = () => {
     updateSectionConfigSections,
     updateSectionConfigSectionBySectionId,
     updateAllSectionConfigData,
+    updateCurrentEditingForm,
   };
 };

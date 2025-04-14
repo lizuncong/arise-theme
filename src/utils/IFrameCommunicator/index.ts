@@ -1,5 +1,5 @@
 import { getEditorOrigin } from '@/constant';
-import { SectionConfigDataStruct, SectionConfigSchema } from '@/types/section';
+import { CurrentEditingFormType, SectionConfigDataStruct, SectionConfigSchema } from '@/types/section';
 
 import { CommunicateType } from './type';
 
@@ -43,7 +43,10 @@ class FrameCommunicator {
     console.log('给Editor发送消息：', message, this.origin);
     window.parent.postMessage(message, this.origin);
   }
-
+  // currentEditingForm发生了改变
+  public notifyCurrentEditingFormChange(currentEditingForm: CurrentEditingFormType | undefined) {
+    this.sendMessage(CommunicateType.currentEditingForm, currentEditingForm);
+  }
   // sectionConfigData的order发生了改变
   public notifySectionConfigOrderChange(order: string[]) {
     this.sendMessage(CommunicateType.order, order);
@@ -80,7 +83,10 @@ class FrameCommunicator {
       this.offMessage(type, handler);
     };
   }
-
+  // 监听currentEditingForm改变的信息
+  public onCurrentEditingFormChange(handler: (currentEditingForm: CurrentEditingFormType | undefined) => void) {
+    return this.onMessage(CommunicateType.currentEditingForm, handler);
+  }
   // 监听sectionConfigData的order发生的改变
   public onSectionConfigOrderChange(handler: (order: string[]) => void) {
     return this.onMessage(CommunicateType.order, handler);

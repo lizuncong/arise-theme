@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import { useAppDispatch } from '@/store/hooks';
+import { changeHomeState } from '@/store/reducer/home';
 import { SectionConfigDataStruct, SectionConfigSchema } from '@/types/section';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
 
@@ -15,6 +16,14 @@ export const useListenerMsgFromEditor = () => {
     updateAllSectionConfigData,
   } = useUpdateConfigData();
   useEffect(() => {
+    // 监听currentEditingForm改变的信息
+    const offCurrentEditingFormChange = iframeCommunicator.onCurrentEditingFormChange((data) => {
+      dispatch(
+        changeHomeState({
+          currentEditingForm: data,
+        }),
+      );
+    });
     // 监听整个section config data改变
     const offSectionConfigData = iframeCommunicator.onSectionConfigData((data: SectionConfigDataStruct) => {
       updateAllSectionConfigData(data);
@@ -44,6 +53,7 @@ export const useListenerMsgFromEditor = () => {
       offSectionConfigOrderChange();
       offSectionConfigSectionChange();
       offSectionConfigSectionsChange();
+      offCurrentEditingFormChange();
     };
   }, [
     dispatch,

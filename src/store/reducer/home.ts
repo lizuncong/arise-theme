@@ -6,12 +6,13 @@
  * **/
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { BlockTypeEnum, SectionConfigDataStruct, SectionTypeEnum } from '@/types/section';
+import { BlockTypeEnum, CurrentEditingFormType, SectionConfigDataStruct, SectionTypeEnum } from '@/types/section';
 
 import { createAppSlice } from '../createAppSlice';
 
 export interface HomeSliceState {
   sectionConfigData: SectionConfigDataStruct;
+  currentEditingForm?: CurrentEditingFormType;
 }
 
 const initialState: HomeSliceState = {
@@ -544,6 +545,7 @@ const initialState: HomeSliceState = {
       },
     },
   },
+  currentEditingForm: undefined,
 };
 
 export const homeSlice = createAppSlice({
