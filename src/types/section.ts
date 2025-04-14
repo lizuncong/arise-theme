@@ -1,6 +1,6 @@
-type SectionId = string;
-type BlockId = string;
-type SettingId = string;
+export type SectionId = string;
+export type BlockId = string;
+export type SettingId = string;
 export interface SectionConfigDataStruct {
   order: string[];
   sections: Record<SectionId, SectionConfigSchema | undefined>;
@@ -18,7 +18,7 @@ export interface SectionConfigSchema {
   };
 }
 
-interface SectionBlockConfigSchema {
+export interface SectionBlockConfigSchema {
   type: BlockTypeEnum;
   settings: Record<SettingId, { value: SettingDefaultValueType; [propName: string]: any }>;
 }
@@ -59,7 +59,7 @@ export enum BlockIconTypeEnum {
   video = 'video',
 }
 
-type SettingDefaultValueType = number | string | boolean | null | Record<string, any>;
+type SettingDefaultValueType = number | string | boolean | null | undefined | Record<string, any>;
 interface SectionSettingSchemaStruct {
   type: WidgetType;
   id?: SettingId;
@@ -75,7 +75,7 @@ interface SectionBlockSchemaStruct {
   name: string;
   settings: SectionSettingSchemaStruct[];
 }
-interface SectionPresetStruct {
+export interface SectionPresetStruct {
   category_index: number;
   category: string;
   name: string;
