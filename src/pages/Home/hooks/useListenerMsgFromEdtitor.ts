@@ -23,6 +23,13 @@ export const useListenerMsgFromEditor = () => {
           currentEditingForm: data,
         }),
       );
+      if (data?.blockId) {
+        const blockEl = document.getElementById(data.blockId);
+        blockEl?.scrollIntoView();
+      } else if (data?.sectionId) {
+        const sectionEl = document.getElementById(data.sectionId);
+        sectionEl?.scrollIntoView();
+      }
     });
     // 监听整个section config data改变
     const offSectionConfigData = iframeCommunicator.onSectionConfigData((data: SectionConfigDataStruct) => {
