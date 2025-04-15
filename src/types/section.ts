@@ -20,6 +20,7 @@ export interface SectionConfigSchema {
 
 export interface SectionBlockConfigSchema {
   type: BlockTypeEnum;
+  disabled?: boolean;
   settings: Record<SettingId, { value: SettingDefaultValueType; [propName: string]: any }>;
 }
 
