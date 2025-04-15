@@ -29,7 +29,7 @@ const Video = memo((props: SectionConfigSchema) => {
       <div className={styles.blockContainer}>
         {blockOrder.map((blockId) => {
           const blockConfig = blocks[blockId];
-          if (!blockConfig) return;
+          if (!blockConfig || blockConfig.disabled) return;
           return (
             <div id={blockId} key={blockId}>
               <div className={styles.blocktype}>{blockConfig.type}</div>
