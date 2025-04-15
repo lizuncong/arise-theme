@@ -9,7 +9,8 @@
           "info": "设置轮播图的显示高度"
         },
         "show_progress": {
-          "label": "展示进度条"
+          "label": "展示进度条",
+          "info": "开启就会显示进度条"
         },
         "show_arrows": {
           "label": "展示翻页箭头"

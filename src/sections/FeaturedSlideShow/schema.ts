@@ -22,6 +22,7 @@ const schema: SectionSchemaStruct = {
     {
       type: WidgetType.switch,
       id: 'show_progress',
+      info: 'sections.featured-slideshow.settings.show_progress.info',
       label: 'sections.featured-slideshow.settings.show_progress.label',
       default: true,
     },
