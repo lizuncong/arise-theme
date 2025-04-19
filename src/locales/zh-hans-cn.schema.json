@@ -468,26 +468,6 @@
     }
   },
   "settings_schema": {
-    "theme": {
-      "default": "简约",
-      "food": "美食",
-      "grounded": "动感",
-      "hammer": "机械"
-    },
-    "logo": {
-      "name": "Logo",
-      "settings": {
-        "logo": {
-          "label": "Logo"
-        },
-        "desktop_logo_width": {
-          "label": "电脑端LOGO宽度"
-        },
-        "mobile_logo_width": {
-          "label": "手机端LOGO宽度"
-        }
-      }
-    },
     "color": {
       "name": "颜色",
       "settings": {
@@ -569,67 +549,37 @@
           "label": "阴影"
         },
         "group_header__4": {
-          "label": "页头"
-        },
-        "color_header_background": {
-          "label": "背景颜色"
-        },
-        "color_header_text": {
-          "label": "文字颜色"
-        },
-        "color_header_pc_search_bar_border": {
-          "label": "电脑端输入框边框颜色"
-        },
-        "color_header_pc_search_bar_text": {
-          "label": "电脑端输入框文本颜色"
-        },
-        "color_header_pc_search_bar_bg": {
-          "label": "电脑端输入框背景颜色"
-        },
-        "group_header__5": {
-          "label": "公告栏"
-        },
-        "color_announcement_bar_background": {
-          "label": "公告栏背景"
-        },
-        "color_announcement_bar_text": {
-          "label": "公告栏文字"
-        },
-        "group_header__6": {
-          "label": "页脚"
-        },
-        "color_footer_background": {
-          "label": "背景颜色"
-        },
-        "color_footer_border": {
-          "label": "边框与线条"
-        },
-        "color_footer_text": {
-          "label": "文字颜色"
-        },
-        "group_header__7": {
           "label": "配色1"
         },
         "color_scheme_1_bg": {
           "label": "背景颜色"
         },
+        "color_scheme_1_gradient": {
+          "label": "背景颜色（渐变）"
+        },
         "color_scheme_1_text": {
           "label": "文字颜色"
         },
-        "group_header__8": {
+        "group_header__5": {
           "label": "配色2"
         },
         "color_scheme_2_bg": {
           "label": "背景颜色"
         },
+        "color_scheme_2_gradient": {
+          "label": "背景颜色（渐变）"
+        },
         "color_scheme_2_text": {
           "label": "文字颜色"
         },
-        "group_header__9": {
+        "group_header__6": {
           "label": "配色3"
         },
         "color_scheme_3_bg": {
           "label": "背景颜色"
+        },
+        "color_scheme_3_gradient": {
+          "label": "背景颜色（渐变）"
         },
         "color_scheme_3_text": {
           "label": "文字颜色"
@@ -671,6 +621,25 @@
         },
         "body_line_height": {
           "label": "字体行高"
+        },
+        "group_header__2": {
+          "label": "其他"
+        },
+        "header_font": {
+          "label": "页头字体",
+          "options__0": {
+            "label": "与标题相同"
+          },
+          "options__1": {
+            "label": "与正文相同"
+          }
+        },
+        "header_font_size": {
+          "label": "页头字体大小"
+        },
+        "header_text_uppercase": {
+          "label": "页头字体大写",
+          "info": "开启后文字会自动增加字体间距"
         }
       }
     },
@@ -813,22 +782,16 @@
           "label": "商品列表"
         },
         "enable_quick_view": {
-          "label": "快速加购"
+          "label": "快速查看"
         },
-        "quick_view_button_pc_style": {
-          "label": "电脑端快速加购样式",
-          "options__0": {
-            "label": "图标"
-          },
-          "options__1": {
-            "label": "悬停出现按钮"
-          },
-          "options__2": {
-            "label": "固定按钮"
-          }
+        "product_add_to_cart": {
+          "label": "电脑端快速加购"
         },
-        "quick_view_button_mobile_style": {
-          "label": "移动端快速加购样式",
+        "enabled_mobile_product_add_to_cart": {
+          "label": "移动端快速加购"
+        },
+        "product_add_to_cart_pc_style": {
+          "label": "电脑端快速查看/加购样式",
           "options__0": {
             "label": "图标"
           },
@@ -836,14 +799,23 @@
             "label": "按钮"
           }
         },
-        "quick_view_mobile_position": {
-          "label": "移动端快速加购图标位置",
-          "info": "当快速加购样式选择图标时生效",
+        "product_add_to_cart_pc_position": {
+          "label": "电脑端快速查看/加购位置",
+          "info": "当快速查看/加购样式选择按钮时生效",
           "options__0": {
-            "label": "图片内"
+            "label": "居中"
           },
           "options__1": {
-            "label": "图片下方"
+            "label": "正下方"
+          }
+        },
+        "product_mobile_quick_add_button_style": {
+          "label": "移动端快速查看/加购样式",
+          "options__0": {
+            "label": "图标"
+          },
+          "options__1": {
+            "label": "按钮"
           }
         },
         "product_title_show_type": {
@@ -866,7 +838,7 @@
         },
         "group_header__1": {
           "label": "色板快速加购",
-          "info": "[点击了解](www.baidu.com)色板快速加购功能详情"
+          "info": "[点击了解](https://help.shopline.com/hc/zh-cn/articles/18291247740825-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%BB%BA%E7%AB%99%E7%BC%96%E8%BE%91%E5%99%A8%E8%89%B2%E6%9D%BF%E5%8A%9F%E8%83%BD)色板快速加购功能详情"
         },
         "enabled_color_swatch": {
           "label": "色板快速加购"
@@ -910,10 +882,6 @@
             "label": "大"
           }
         },
-        "group_header__2": {
-          "label": "商品卡片优惠标签",
-          "info": "仅适用于商品列表，详情页的优惠标签可前往 商品详情-价格 进行单独设置"
-        },
         "product_discount": {
           "label": "显示优惠"
         },
@@ -936,15 +904,6 @@
             "label": "显示优惠比例"
           }
         },
-        "product_discount_size": {
-          "label": "优惠标签大小",
-          "options__0": {
-            "label": "中"
-          },
-          "options__1": {
-            "label": "小"
-          }
-        },
         "product_discount_position": {
           "label": "优惠标签位置",
           "options__0": {
@@ -963,7 +922,7 @@
         "product_discount_radius": {
           "label": "优惠标签圆角半径"
         },
-        "group_header__3": {
+        "group_header__2": {
           "label": "商品卡片价格展示",
           "info": "商品列表页的价格展示方式可前往 商品列表-商品信息 进行单独设置。"
         },
@@ -1314,6 +1273,9 @@
           },
           "options__2": {
             "label": "通知弹窗"
+          },
+          "options__3": {
+            "label": "已成功加购提示"
           }
         },
         "cart_continue_url": {
@@ -1573,10 +1535,6 @@
     "search_behavior": {
       "name": "搜索行为",
       "settings": {
-        "search_menu": {
-          "label": "搜索推荐菜单",
-          "info": "搜索框未输入内容时显示"
-        },
         "show_search_goods_price": {
           "label": "推荐商品显示价格"
         }
@@ -1585,11 +1543,8 @@
     "breadcrumb": {
       "name": "面包屑",
       "settings": {
-        "show_pc_breadcrumb": {
-          "label": "电脑端显示面包屑"
-        },
-        "show_mobile_breadcrumb": {
-          "label": "移动端显示面包屑"
+        "show_breadcrumb": {
+          "label": "显示面包屑"
         }
       }
     },
