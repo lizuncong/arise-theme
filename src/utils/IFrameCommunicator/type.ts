@@ -7,4 +7,5 @@ export enum CommunicateType {
   sectionSchemaLanguage = 'on:sectionLanguageChange', // 监听section schema多语言语料的消息
   allSectionSchemaChange = 'on:allSectionSchemaChange', // section schema改变
   currentEditingForm = 'currentEditingForm', // 当前正在编辑的section或者block发生了改变
+  language = 'language', // 语言发生了改变
 }

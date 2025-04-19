@@ -1,0 +1,254 @@
+{
+  "sections": {
+    "featured-slideshow": {
+      "name": "Featured Slideshow",
+      "block_info": "[View recommended image sizes](https://shoplineapphelp.zendesk.com/hc/articles/4406422263577)",
+      "settings": {
+        "content_height": {
+          "label": "Content Height",
+          "info": "Set the display height of the slideshow"
+        },
+        "show_progress": {
+          "label": "Show Progress Bar",
+          "info": "Enable to display progress bar"
+        },
+        "show_arrows": {
+          "label": "Show Navigation Arrows"
+        },
+        "autoplay": {
+          "label": "Enable Auto Play"
+        },
+        "autoplay_speed": {
+          "label": "Slideshow Interval",
+          "unit": "seconds"
+        }
+      },
+      "blocks": {
+        "image": {
+          "name": "Image",
+          "settings": {
+            "group_header__0": {
+              "label": "General Settings"
+            },
+            "image_text_layout": {
+              "label": "Image Text Layout",
+              "options__0": {
+                "label": "50% Image"
+              },
+              "options__1": {
+                "label": "70% Image"
+              },
+              "options__2": {
+                "label": "Full Screen Image"
+              }
+            },
+            "image_layout_style": {
+              "label": "Image Text Position",
+              "options__0": {
+                "label": "Image Left, Text Right"
+              },
+              "options__1": {
+                "label": "Text Left, Image Right"
+              }
+            },
+            "show_content_line": {
+              "label": "Show Content Decoration Line"
+            },
+            "overlay_opacity": {
+              "label": "Image Overlay"
+            },
+            "text_mask": {
+              "label": "Text Mask"
+            },
+            "text_mask_color": {
+              "label": "Text Mask Color",
+              "options__0": {
+                "label": "Dark"
+              },
+              "options__1": {
+                "label": "Light"
+              }
+            },
+            "group_header__1": {
+              "label": "Image Area Settings"
+            },
+            "image": {
+              "label": "Desktop Image",
+              "info": "Recommended size: Full screen layout 2880x1400px, 50% layout 1440x1400px, 70% layout 2000x1400px"
+            },
+            "image_mobile": {
+              "label": "Mobile Image",
+              "info": "Recommended size: Full screen layout 720x1500px, 50% layout 720x760px, 70% layout 720x1000px"
+            },
+            "content_vertical_layout": {
+              "label": "Content Vertical Alignment",
+              "options__0": {
+                "label": "Top"
+              },
+              "options__1": {
+                "label": "Center"
+              },
+              "options__2": {
+                "label": "Bottom"
+              }
+            },
+            "content_horizontal_layout": {
+              "label": "Content Horizontal Alignment",
+              "options__0": {
+                "label": "Left"
+              },
+              "options__1": {
+                "label": "Center"
+              },
+              "options__2": {
+                "label": "Right"
+              }
+            },
+            "title": {
+              "label": "Title"
+            },
+            "title_font": {
+              "label": "Title Font"
+            },
+            "title_font_size": {
+              "label": "Title Font Size",
+              "options__0": {
+                "label": "Small"
+              },
+              "options__1": {
+                "label": "Medium"
+              },
+              "options__2": {
+                "label": "Large"
+              }
+            },
+            "content": {
+              "label": "Content"
+            },
+            "button_text": {
+              "label": "Button Text",
+              "info": "If no button text is configured, clicking the image will redirect"
+            },
+            "link": {
+              "label": "Link"
+            },
+            "text_font_color": {
+              "label": "Text Color"
+            },
+            "button_style": {
+              "label": "Button Style",
+              "options__0": {
+                "label": "Primary Button"
+              },
+              "options__1": {
+                "label": "Outline Button"
+              },
+              "options__2": {
+                "label": "Underline"
+              }
+            },
+            "image_button_text_background": {
+              "label": "Button Background Color"
+            },
+            "image_button_text_color": {
+              "label": "Button Text Color"
+            },
+            "image_button_border_color": {
+              "label": "Button Border Color"
+            },
+            "group_header__2": {
+              "label": "Text Area Settings"
+            },
+            "text_content_horizontal_layout": {
+              "label": "Content Horizontal Alignment",
+              "options__0": {
+                "label": "Left"
+              },
+              "options__1": {
+                "label": "Center"
+              },
+              "options__2": {
+                "label": "Right"
+              }
+            },
+            "text_title": {
+              "label": "Title"
+            },
+            "text_enabled_custom_font": {
+              "label": "Enable Custom Font for Title"
+            },
+            "text_title_font_size": {
+              "label": "Title Font Size",
+              "options__0": {
+                "label": "Small"
+              },
+              "options__1": {
+                "label": "Medium"
+              },
+              "options__2": {
+                "label": "Large"
+              }
+            },
+            "text_content": {
+              "label": "Content"
+            },
+            "text_button_text": {
+              "label": "Button Text"
+            },
+            "text_link": {
+              "label": "Link"
+            },
+            "text_text_color": {
+              "label": "Text Color"
+            },
+            "text_background_color": {
+              "label": "Background Color"
+            },
+            "text_button_style": {
+              "label": "Button Style",
+              "options__0": {
+                "label": "Primary Button"
+              },
+              "options__1": {
+                "label": "Outline Button"
+              },
+              "options__2": {
+                "label": "Underline"
+              }
+            },
+            "text_button_background_color": {
+              "label": "Button Background Color"
+            },
+            "text_button_text_color": {
+              "label": "Button Text Color"
+            },
+            "text_button_border_color": {
+              "label": "Button Border Color"
+            }
+          }
+        }
+      },
+      "presets": {
+        "presets__0": {
+          "category": "Image Text Display",
+          "name": "Featured Slideshow 1"
+        },
+        "presets__1": {
+          "category": "Image Text Display",
+          "name": "Featured Slideshow 2"
+        }
+      }
+    },
+    "multi-media-splicing": {
+      "name": "Collage",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "title_size": {
+          "label": "Title Size"
+        }
+      }
+    }
+  }
+}

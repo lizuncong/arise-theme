@@ -7,6 +7,7 @@ import iframeCommunicator from '@/utils/IFrameCommunicator';
 
 import { useInitEditor } from './hooks/useInitEditor';
 import { useListenerMsgFromEditor } from './hooks/useListenerMsgFromEdtitor';
+import { useSendLanguageToEditor } from './hooks/useSendLanguageToEditor';
 import styles from './index.module.less';
 const FeatureSlideShow = lazy(() => import(/* webpackChunkName: 'slideshow' */ '@/sections/FeaturedSlideShow'));
 const Video = lazy(() => import(/* webpackChunkName: 'video' */ '@/sections/Video'));
@@ -32,6 +33,7 @@ const Home = memo(() => {
   useInitEditor();
   // 监听编辑器的消息
   useListenerMsgFromEditor();
+  useSendLanguageToEditor();
   return (
     <div className={styles.home}>
       <div className={styles.header}>{t('home.title')}</div>

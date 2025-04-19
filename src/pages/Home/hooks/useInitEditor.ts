@@ -1,7 +1,5 @@
 import { useEffect, useRef } from 'react';
 
-import { zhKey } from '@/i18n';
-import zhSectionSchemaLanguage from '@/locales/zh-hans-cn.schema.json';
 import { allSectionSchema } from '@/sections/schema';
 import { useAppSelector } from '@/store/hooks';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
@@ -17,6 +15,5 @@ export const useInitEditor = () => {
   useEffect(() => {
     iframeCommunicator.notifySectionConfigDataChange(sectionConfigDataRef.current);
     iframeCommunicator.notifyAllSectionSchemaChange(allSectionSchema);
-    iframeCommunicator.notifySectionSchemaLanguage({ i18nKey: zhKey, locales: zhSectionSchemaLanguage });
   }, []);
 };

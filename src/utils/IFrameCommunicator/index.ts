@@ -1,4 +1,5 @@
 import { getEditorOrigin } from '@/constant';
+import { LanguageEnum } from '@/types/enum';
 import { CurrentEditingFormType, SectionConfigDataStruct, SectionConfigSchema } from '@/types/section';
 
 import { CommunicateType } from './type';
@@ -70,7 +71,7 @@ class FrameCommunicator {
     this.sendMessage(CommunicateType.allSectionSchemaChange, schema);
   }
   // 多语言或者语料发生了改变
-  public notifySectionSchemaLanguage(data: { i18nKey: string; locales: any }) {
+  public notifySectionSchemaLanguage(data: { i18nKey: LanguageEnum; locales: any }) {
     this.sendMessage(CommunicateType.sectionSchemaLanguage, data);
   }
   private onMessage(type: string, handler: (data: any) => void): () => void {
@@ -104,6 +105,11 @@ class FrameCommunicator {
   // 监听整个section config data改变
   public onSectionConfigData(handler: (data: SectionConfigDataStruct) => void) {
     return this.onMessage(CommunicateType.sectionConfigData, handler);
+  }
+
+  // 监听language变化改变
+  public onLanguageData(handler: (i18nKey: LanguageEnum) => void) {
+    return this.onMessage(CommunicateType.language, handler);
   }
 
   private offMessage(type: string, handler: (data: any) => void): void {

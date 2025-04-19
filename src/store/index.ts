@@ -3,12 +3,13 @@ import { combineSlices, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
 import { dashboardSlice } from './reducer/dashboard';
+import { globalSlice } from './reducer/global';
 import { homeSlice } from './reducer/home';
 import { themeSlice } from './reducer/theme';
 
 // `combineSlices` automatically combines the reducers using
 // their `reducerPath`s, therefore we no longer need to call `combineReducers`.
-const rootReducer = combineSlices(themeSlice, homeSlice, dashboardSlice);
+const rootReducer = combineSlices(globalSlice, themeSlice, homeSlice, dashboardSlice);
 // Infer the `RootState` type from the root reducer
 export type RootState = ReturnType<typeof rootReducer>;
 
