@@ -10,6 +10,22 @@
   font-size: 36px;
 }
 
+:root {
+  --title-font--base-size: 36;
+  --title1-font-size: calc(var(--title-font-size) * (30 / var(--title-font--base-size)));
+  --title2-font-size: calc(var(--title-font-size) * (35 / var(--title-font--base-size)));
+  --title3-font-size: calc(var(--title-font-size) * (22 / var(--title-font--base-size)));
+  --title4-font-size: calc(var(--title-font-size) * (20 / var(--title-font--base-size)));
+  --title5-font-size: calc(var(--title-font-size) * (18 / var(--title-font--base-size)));
+  --title6-font-size: calc(var(--title-font-size) * (18 / var(--title-font--base-size)));
+  --body1-font-size: calc(var(--body-font-size) * (16 / var(--body-font-base-size)));
+  --body2-font-size: calc(var(--body-font-size) * (16 / var(--body-font-base-size)));
+  --body3-font-size: calc(var(--body-font-size) * (14 / var(--body-font-base-size)));
+  --body4-font-size: calc(var(--body-font-size) * (12 / var(--body-font-base-size)));
+  --body5-font-size: calc(var(--body-font-size) * (13 / var(--body-font-base-size)));
+  --body6-font-size: calc(var(--body-font-size) * (12 / var(--body-font-base-size)));
+}
+
 body,
 html {
   color: var(--color-text);
@@ -59,17 +75,17 @@ h6,
 
 h1,
 .title1 {
-  font-size: var(--title1-font-size);
+  font-size: calc(var(--title1-font-size) * 1px);
 }
 
 h2,
 .title2 {
-  font-size: var(--title2-font-size);
+  font-size: calc(var(--title2-font-size) * 1px);
 }
 
 h3,
 .title3 {
-  font-size: var(--title3-font-size);
+  font-size: calc(var(--title3-font-size) * 1px);
 }
 
 h4,
