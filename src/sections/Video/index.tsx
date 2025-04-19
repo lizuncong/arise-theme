@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
+import DefaultVideo from '@/assets/default.svg?react';
 import { SectionConfigSchema } from '@/types/section';
 
-import DefaultVideo from './default.svg?react';
 import styles from './index.module.less';
 const Video = memo((props: SectionConfigSchema) => {
   const { settingsData, sectionId } = props;
