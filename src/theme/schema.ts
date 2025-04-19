@@ -1789,7 +1789,7 @@ const schema: ThemeSchemaStruct = {
           default: 'You May Also Like',
         },
         {
-          type: 'collection_picker',
+          type: WidgetType.collection_picker,
           id: 'cart_empty_recommend_collection',
           label: 'settings_schema.cart.settings.cart_empty_recommend_collection.label',
         },
@@ -1854,13 +1854,13 @@ const schema: ThemeSchemaStruct = {
         },
         {
           id: 'co_banner_pc_img',
-          type: 'image_picker',
+          type: WidgetType.image_picker,
           label: 'settings_schema.checkout.settings.co_banner_pc_img.label',
           default: {},
         },
         {
           id: 'co_banner_phone_img',
-          type: 'image_picker',
+          type: WidgetType.image_picker,
           label: 'settings_schema.checkout.settings.co_banner_phone_img.label',
           info: 'settings_schema.checkout.settings.co_banner_phone_img.info',
           default: {},
@@ -1937,7 +1937,7 @@ const schema: ThemeSchemaStruct = {
         },
         {
           id: 'co_checkout_image',
-          type: 'image_picker',
+          type: WidgetType.image_picker,
           label: 'settings_schema.checkout.settings.co_checkout_image.label',
           default: {},
         },
@@ -1987,13 +1987,13 @@ const schema: ThemeSchemaStruct = {
         },
         {
           id: 'co_bg_image',
-          type: 'image_picker',
+          type: WidgetType.image_picker,
           label: 'settings_schema.checkout.settings.co_bg_image.label',
           default: {},
         },
         {
           id: 'co_background_color',
-          type: 'color',
+          type: WidgetType.color,
           label: 'settings_schema.checkout.settings.co_background_color.label',
           default: '#FFFFFF',
         },
@@ -2019,13 +2019,13 @@ const schema: ThemeSchemaStruct = {
         },
         {
           id: 'co_order_bg_image',
-          type: 'image_picker',
+          type: WidgetType.image_picker,
           label: 'settings_schema.checkout.settings.co_order_bg_image.label',
           default: {},
         },
         {
           id: 'co_order_background_color',
-          type: 'color',
+          type: WidgetType.color,
           label: 'settings_schema.checkout.settings.co_order_background_color.label',
           default: '#FAFAFA',
         },
@@ -2035,7 +2035,7 @@ const schema: ThemeSchemaStruct = {
         },
         {
           id: 'co_type_title_font',
-          type: 'font_lib_picker',
+          type: WidgetType.select,
           label: 'settings_schema.checkout.settings.co_type_title_font.label',
           options: [
             'Open Sans',
@@ -2061,7 +2061,7 @@ const schema: ThemeSchemaStruct = {
         },
         {
           id: 'co_type_body_font',
-          type: 'font_lib_picker',
+          type: WidgetType.select,
           label: 'settings_schema.checkout.settings.co_type_body_font.label',
           options: [
             'Open Sans',
@@ -2091,20 +2091,20 @@ const schema: ThemeSchemaStruct = {
         },
         {
           id: 'co_color_btn_bg',
-          type: 'color',
+          type: WidgetType.color,
           label: 'settings_schema.checkout.settings.co_color_btn_bg.label',
           default: '#276EAF',
         },
         {
           id: 'co_color_err_color',
-          type: 'color',
+          type: WidgetType.color,
           label: 'settings_schema.checkout.settings.co_color_err_color.label',
           info: 'settings_schema.checkout.settings.co_color_err_color.info',
           default: '#F04949',
         },
         {
           id: 'co_color_msg_color',
-          type: 'color',
+          type: WidgetType.color,
           label: 'settings_schema.checkout.settings.co_color_msg_color.label',
           info: 'settings_schema.checkout.settings.co_color_msg_color.info',
           default: '#276EAF',
