@@ -309,7 +309,7 @@ const initialState: HomeSliceState = {
           type: SectionTypeEnum.Video,
           settings: {
             title: {
-              value: '这是一个视频',
+              value: '视频标题',
             },
             title_size: {
               value: 'title3',

@@ -7,6 +7,7 @@ import { changeThemeState } from '@/store/reducer/theme';
 import themeSchema from '@/theme/schema';
 import { AriseThemeStyle, SectionConfigSchema, SectionTypeEnum } from '@/types/section';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
+import { themeConfigToCssVars } from '@/utils/themeConfigToCssVars';
 
 import { useInitEditor } from './hooks/useInitEditor';
 import { useListenerMsgFromEditor } from './hooks/useListenerMsgFromEdtitor';
@@ -40,6 +41,10 @@ const Home = memo(() => {
     const off = iframeCommunicator.initWindowListener();
     return off;
   }, [dispatch, themeStyle]);
+  useEffect(() => {
+    if (!themeConfig) return;
+    themeConfigToCssVars(themeConfig);
+  }, [themeConfig]);
   // 初始化时，给编辑器发送消息
   useInitEditor();
   // 监听编辑器的消息
