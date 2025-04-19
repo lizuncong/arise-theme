@@ -46,6 +46,8 @@ export enum WidgetType {
   product_picker = 'product_picker',
   collection_picker = 'collection_picker',
   url = 'url',
+  color = 'color',
+  font = 'font',
 }
 export enum BlockTypeEnum {
   image = 'image',
@@ -102,4 +104,24 @@ export interface CurrentEditingFormType {
   type: SectionTypeEnum | BlockTypeEnum;
   sectionId?: SectionId;
   blockId?: BlockId;
+}
+
+export enum AriseThemeStyle {
+  Default = 'default',
+  Food = 'food',
+  Grounded = 'grounded',
+  Hammer = 'hammer',
+}
+
+export interface ThemeSchemaStruct {
+  info: Record<string, string>;
+  blocks: {
+    name: string;
+    settings: SectionSettingSchemaStruct[];
+  }[];
+  presets: {
+    type: AriseThemeStyle;
+    name: string;
+    settings: Record<string, SettingDefaultValueType>;
+  }[];
 }

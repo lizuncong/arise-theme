@@ -468,6 +468,12 @@
     }
   },
   "settings_schema": {
+    "theme": {
+      "default": "简约",
+      "food": "美食",
+      "grounded": "动感",
+      "hammer": "机械"
+    },
     "logo": {
       "name": "Logo",
       "settings": {
