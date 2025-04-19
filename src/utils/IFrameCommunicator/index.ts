@@ -1,6 +1,12 @@
 import { getEditorOrigin } from '@/constant';
 import { LanguageEnum } from '@/types/enum';
-import { CurrentEditingFormType, SectionConfigDataStruct, SectionConfigSchema } from '@/types/section';
+import {
+  CurrentEditingFormType,
+  SectionConfigDataStruct,
+  SectionConfigSchema,
+  ThemePresetType,
+  ThemeSchemaStruct,
+} from '@/types/section';
 
 import { CommunicateType } from './type';
 
@@ -69,6 +75,18 @@ class FrameCommunicator {
   //向编辑器同步一份所有section的schema协议。
   public notifyAllSectionSchemaChange(schema: any) {
     this.sendMessage(CommunicateType.allSectionSchemaChange, schema);
+  }
+  //向编辑器同步一份theme的schema协议。
+  public notifyThemeSchemaChange(schema: ThemeSchemaStruct) {
+    this.sendMessage(CommunicateType.themeSchemaChange, schema);
+  }
+  //向编辑器同步一份theme的config。
+  public notifyThemeConfigChange(themeConfig: ThemePresetType | undefined) {
+    this.sendMessage(CommunicateType.themeConfigChange, themeConfig);
+  }
+  // 监听主题配置项改变
+  public onThemeConfigChange(handler: (themeConfig: ThemePresetType) => void) {
+    return this.onMessage(CommunicateType.themeConfigChange, handler);
   }
   // 多语言或者语料发生了改变
   public notifySectionSchemaLanguage(data: { i18nKey: LanguageEnum; locales: any }) {

@@ -113,15 +113,16 @@ export enum AriseThemeStyle {
   Hammer = 'hammer',
 }
 
+export interface ThemePresetType {
+  type: AriseThemeStyle;
+  name: string;
+  settings: Record<string, SettingDefaultValueType>;
+}
 export interface ThemeSchemaStruct {
   info: Record<string, string>;
   blocks: {
     name: string;
     settings: SectionSettingSchemaStruct[];
   }[];
-  presets: {
-    type: AriseThemeStyle;
-    name: string;
-    settings: Record<string, SettingDefaultValueType>;
-  }[];
+  presets: ThemePresetType[];
 }

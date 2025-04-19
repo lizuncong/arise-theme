@@ -6,18 +6,18 @@
 
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-import { AriseThemeStyle } from '@/types/section';
+import { AriseThemeStyle, ThemePresetType } from '@/types/section';
 
 import { createAppSlice } from '../createAppSlice';
 
 export interface ThemeSliceState {
   currentThemeStyle: AriseThemeStyle | undefined;
-  config: any;
+  themeConfig: ThemePresetType | undefined;
 }
 
 const initialState: ThemeSliceState = {
   currentThemeStyle: undefined,
-  config: null,
+  themeConfig: undefined,
 };
 export const themeSlice = createAppSlice({
   name: 'theme',

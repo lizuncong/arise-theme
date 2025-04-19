@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { changeThemeState } from '@/store/reducer/theme';
+import themeSchema from '@/theme/schema';
 import { AriseThemeStyle, SectionConfigSchema, SectionTypeEnum } from '@/types/section';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
 
@@ -30,9 +31,11 @@ const Home = memo(() => {
   const [searchParams] = useSearchParams(location.search);
   const themeStyle = searchParams.get('themestyle') as AriseThemeStyle;
   const dispatch = useAppDispatch();
+  const themeConfig = useAppSelector((state) => state.theme.themeConfig);
   useEffect(() => {
     if (themeStyle) {
-      dispatch(changeThemeState({ currentThemeStyle: themeStyle }));
+      const preset = themeSchema.presets.find((preset) => preset.type === themeStyle);
+      dispatch(changeThemeState({ currentThemeStyle: themeStyle, themeConfig: preset }));
     }
     const off = iframeCommunicator.initWindowListener();
     return off;
@@ -51,6 +54,7 @@ const Home = memo(() => {
         const Comp = SectionCompMap[seConfigData.type];
         return <Comp key={seConfigData.sectionId} {...seConfigData} />;
       })}
+      <div className={styles.themeConfig}>{JSON.stringify(themeConfig)}</div>
     </div>
   );
 });

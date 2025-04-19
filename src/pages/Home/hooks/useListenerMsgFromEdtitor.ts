@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import { useAppDispatch } from '@/store/hooks';
 import { changeHomeState } from '@/store/reducer/home';
+import { changeThemeState } from '@/store/reducer/theme';
 import { SectionConfigDataStruct, SectionConfigSchema } from '@/types/section';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
 
@@ -16,6 +17,14 @@ export const useListenerMsgFromEditor = () => {
     updateAllSectionConfigData,
   } = useUpdateConfigData();
   useEffect(() => {
+    // 监听主题配置项改变的信息
+    const offThemeConfigChange = iframeCommunicator.onThemeConfigChange((data) => {
+      dispatch(
+        changeThemeState({
+          themeConfig: data,
+        }),
+      );
+    });
     // 监听currentEditingForm改变的信息
     const offCurrentEditingFormChange = iframeCommunicator.onCurrentEditingFormChange((data) => {
       dispatch(
@@ -63,6 +72,7 @@ export const useListenerMsgFromEditor = () => {
       offSectionConfigSectionChange();
       offSectionConfigSectionsChange();
       offCurrentEditingFormChange();
+      offThemeConfigChange();
     };
   }, [
     dispatch,
