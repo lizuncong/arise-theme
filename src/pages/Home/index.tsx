@@ -1,8 +1,10 @@
 import { JSX, lazy, LazyExoticComponent, memo, MemoExoticComponent, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSearchParams } from 'react-router';
 
-import { useAppSelector } from '@/store/hooks';
-import { SectionConfigSchema, SectionTypeEnum } from '@/types/section';
+import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { changeThemeState } from '@/store/reducer/theme';
+import { AriseThemeStyle, SectionConfigSchema, SectionTypeEnum } from '@/types/section';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
 
 import { useInitEditor } from './hooks/useInitEditor';
@@ -25,10 +27,16 @@ const SectionCompMap: Record<
 const Home = memo(() => {
   const { t } = useTranslation();
   const sectionConfigData = useAppSelector((state) => state.home.sectionConfigData);
+  const [searchParams] = useSearchParams(location.search);
+  const themeStyle = searchParams.get('themestyle') as AriseThemeStyle;
+  const dispatch = useAppDispatch();
   useEffect(() => {
+    if (themeStyle) {
+      dispatch(changeThemeState({ currentThemeStyle: themeStyle }));
+    }
     const off = iframeCommunicator.initWindowListener();
     return off;
-  }, []);
+  }, [dispatch, themeStyle]);
   // 初始化时，给编辑器发送消息
   useInitEditor();
   // 监听编辑器的消息
