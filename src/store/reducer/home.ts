@@ -233,7 +233,7 @@ const initialState: HomeSliceState = {
                   value: null,
                 },
                 image: {
-                  value: 'shopline://shop_images/1.png',
+                  value: '',
                   resource: {
                     id: '6943930668708276315',
                     storeId: 1744218611515,
@@ -241,7 +241,7 @@ const initialState: HomeSliceState = {
                     materialType: {
                       name: 'IMAGE',
                     },
-                    url: 'https://img.myshopline.com/image/store/1744218611515/1.png?w=640&h=853',
+                    url: '',
                     size: 1053523,
                     atlSeo: null,
                     defaultAlt: null,
@@ -383,7 +383,7 @@ const initialState: HomeSliceState = {
                   value: 'cover',
                 },
                 image: {
-                  value: 'shopline://shop_images/color2_6947290210074102469.png',
+                  value: '',
                   resource: {
                     id: '6947290210074102469',
                     storeId: 1744218611515,
@@ -391,7 +391,7 @@ const initialState: HomeSliceState = {
                     materialType: {
                       name: 'IMAGE',
                     },
-                    url: 'https://img.myshopline.com/image/store/1744218611515/color2.png?w=4&h=4',
+                    url: '',
                     size: 137,
                     atlSeo: null,
                     defaultAlt: null,
@@ -462,7 +462,7 @@ const initialState: HomeSliceState = {
                   value: '',
                 },
                 cover_image: {
-                  value: 'shopline://shop_images/1.png',
+                  value: '',
                   resource: {
                     id: '6943930668708276315',
                     storeId: 1744218611515,
@@ -470,7 +470,7 @@ const initialState: HomeSliceState = {
                     materialType: {
                       name: 'IMAGE',
                     },
-                    url: 'https://img.myshopline.com/image/store/1744218611515/1.png?w=640&h=853',
+                    url: '',
                     size: 1053523,
                     atlSeo: null,
                     defaultAlt: null,

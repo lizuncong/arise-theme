@@ -16,7 +16,7 @@ export interface ThemeSliceState {
 const initialState: ThemeSliceState = {
   current: {
     theme: {
-      logo: 'shopline://shop_images/1.png',
+      logo: '',
       desktop_logo_width: 160,
       mobile_logo_width: 145,
       color_page_background: '#FFFFFF',
