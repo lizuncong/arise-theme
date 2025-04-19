@@ -21,18 +21,6 @@ body {
   overflow: hidden;
 }
 
-.title5 {
-  font-size: 30px;
-}
-
-.title3 {
-  font-size: 33px;
-}
-
-.title2 {
-  font-size: 36px;
-}
-
 html {
   line-height: 1.15; /* 1 */
   text-size-adjust: 100%; /* 2 */

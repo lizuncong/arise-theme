@@ -1,4 +1,5 @@
 import './styles/normalize.css';
+import './styles/base.less';
 import './i18n';
 
 import { RouterProvider } from 'react-router';

@@ -6,9 +6,8 @@ import { SectionConfigSchema } from '@/types/section';
 import styles from './index.module.less';
 const Video = memo((props: SectionConfigSchema) => {
   const { settingsData, sectionId } = props;
-  // const blockOrder = settingsData.block_order || [];
   const sectionSetting = settingsData.settings;
-  // const blocks = settingsData.blocks || {};
+  console.log('video..', props);
   return (
     <div id={sectionId} className={[styles.container].join(' ')}>
       <h2 className={sectionSetting.title_size.value as string}>{sectionSetting.title.value as string}</h2>
