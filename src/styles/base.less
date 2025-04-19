@@ -12,8 +12,8 @@
 
 body,
 html {
-  color: rgba(var(--color-text));
-  background-color: rgba(var(--color-page-background));
+  color: var(--color-text);
+  background-color: var(--color-page-background);
 }
 
 body {
@@ -31,7 +31,7 @@ body {
 
 a:not(.button),
 a:not(.button):hover {
-  color: rgba(var(--color-text));
+  color: var(--color-text);
   text-decoration: none;
 }
 
@@ -145,7 +145,33 @@ h6,
 .color-scheme-1,
 .color-scheme-2,
 .color-scheme-3 {
-  color: rgb(var(--color-text));
-  background: rgb(var(--color-page-background));
+  color: var(--color-text);
   background: var(--color-gradient-background);
+}
+
+.color-scheme-1,
+.color-scheme-1 .button::before {
+  --color-page-background: var(--color-scheme-1-bg);
+  --color-gradient-background: var(--color-scheme-1-gradient);
+  --color-text: var(--color-scheme-1-text);
+  --color-button-background: var(--color-scheme-1-text);
+  --color-button-text: var(--color-scheme-1-bg);
+}
+
+.color-scheme-2,
+.color-scheme-2 .button::before {
+  --color-page-background: var(--color-scheme-2-bg);
+  --color-gradient-background: var(--color-scheme-2-gradient);
+  --color-text: var(--color-scheme-2-text);
+  --color-button-background: var(--color-scheme-2-text);
+  --color-button-text: var(--color-scheme-2-bg);
+}
+
+.color-scheme-3,
+.color-scheme-3 .button::before {
+  --color-gradient-background: var(--color-scheme-3-gradient);
+  --color-page-background: var(--color-scheme-3-bg);
+  --color-text: var(--color-scheme-3-text);
+  --color-button-background: var(--color-scheme-3-text);
+  --color-button-text: var(--color-scheme-3-bg);
 }

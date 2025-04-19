@@ -6,28 +6,27 @@ import { SectionConfigSchema } from '@/types/section';
 import styles from './index.module.less';
 const Video = memo((props: SectionConfigSchema) => {
   const { settingsData, sectionId } = props;
+
   const sectionSetting = settingsData.settings;
-  console.log('video..', props);
+  const cover = sectionSetting.cover.value as { url: string; origin: string };
+  const externalVideoUrl = sectionSetting.external_video.value as string;
+  const internalVideoUrl = sectionSetting.internal_video.value as string;
   return (
-    <div id={sectionId} className={[styles.container].join(' ')}>
+    <div
+      id={sectionId}
+      className={[
+        styles.container,
+        sectionSetting.full_width.value && 'page-width',
+        `color-scheme-${sectionSetting.color_scheme.value as string}`,
+      ].join(' ')}
+    >
       <h2 className={sectionSetting.title_size.value as string}>{sectionSetting.title.value as string}</h2>
-      <div>
-        <DefaultVideo />
-      </div>
-      <div className={styles.settingheader}>Section Settings</div>
-      <div className={styles.settings}>
-        {Object.keys(sectionSetting).map((key) => {
-          const value = JSON.stringify(sectionSetting[key].value);
-          // if (typeof value === 'object') {
-          //   value = JSON.stringify(value);
-          // }
-          return (
-            <div className={styles.settingitem} key={key}>
-              <span>{key}：</span>
-              {value}
-            </div>
-          );
-        })}
+      <div className={styles.videoContainer}>
+        {externalVideoUrl && <video src={externalVideoUrl}></video>}
+        {internalVideoUrl && <video src={internalVideoUrl}></video>}
+        {!externalVideoUrl &&
+          !internalVideoUrl &&
+          (cover.url ? <img src={cover.origin + cover.url} alt="" /> : <DefaultVideo />)}
       </div>
     </div>
   );
