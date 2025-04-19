@@ -1,3 +1,4 @@
+import i18n from 'i18next'; // 确保你已经初始化了i18n
 import { useEffect, useRef } from 'react';
 
 import enTranslation from '@/locales/en.schema.json';
@@ -23,6 +24,8 @@ export const useSendLanguageToEditor = () => {
           language: i18nKey,
         }),
       );
+      i18n.changeLanguage(i18nKey);
+
       iframeCommunicator.notifySectionSchemaLanguage({ i18nKey: i18nKey, locales: languageMap[i18nKey] });
     });
 
