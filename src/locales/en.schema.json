@@ -249,6 +249,73 @@
           "label": "Title Size"
         }
       }
+    },
+    "video": {
+      "name": "Video",
+      "settings": {
+        "title": {
+          "label": "Title"
+        },
+        "title_size": {
+          "label": "Title Size",
+          "options__0": {
+            "label": "Small"
+          },
+          "options__1": {
+            "label": "Medium"
+          },
+          "options__2": {
+            "label": "Large"
+          }
+        },
+        "cover": {
+          "label": "Cover Image"
+        },
+        "internal_video": {
+          "label": "Local Upload"
+        },
+        "external_video": {
+          "label": "External Video Link",
+          "info": "Enter YouTube or Vimeo embed link"
+        },
+        "video_auto_play": {
+          "label": "Auto Play Video",
+          "info": "Muted by default when auto playing"
+        },
+        "full_width": {
+          "label": "Full Width"
+        },
+        "color_scheme": {
+          "label": "Color Scheme",
+          "options__0": {
+            "label": "None"
+          },
+          "options__1": {
+            "label": "Scheme 1"
+          },
+          "options__2": {
+            "label": "Scheme 2"
+          },
+          "options__3": {
+            "label": "Scheme 3"
+          }
+        },
+        "group_header__0": {
+          "label": "Section Padding"
+        },
+        "padding_top": {
+          "label": "Top Padding"
+        },
+        "padding_bottom": {
+          "label": "Bottom Padding"
+        }
+      },
+      "presets": {
+        "presets__0": {
+          "category": "Multimedia",
+          "name": "Video"
+        }
+      }
     }
   },
   "settings_schema": {
@@ -1092,10 +1159,13 @@
           },
           "options__2": {
             "label": "Notification"
+          },
+          "options__3": {
+            "label": "Success Message"
           }
         },
         "cart_continue_url": {
-          "label": "Continue Shopping Link"
+          "label": "Continue Shopping URL"
         },
         "group_header__0": {
           "label": "Empty Cart Recommendations"
@@ -1112,7 +1182,7 @@
         "cart_empty_recommend_product_image_ratio": {
           "label": "Product Image Ratio",
           "options__0": {
-            "label": "Original Ratio"
+            "label": "Original"
           },
           "options__1": {
             "label": "1:1"
@@ -1146,12 +1216,12 @@
         },
         "co_banner_phone_img": {
           "label": "Mobile Image",
-          "info": "If no mobile image is uploaded, desktop image will be displayed on mobile"
+          "info": "If no mobile image is uploaded, the desktop image will be displayed on mobile"
         },
         "co_banner_pc_height": {
           "label": "Desktop Image Height",
           "options__0": {
-            "label": "Fit Image"
+            "label": "Adapt to Image"
           },
           "options__1": {
             "label": "High"
@@ -1163,7 +1233,7 @@
         "co_banner_phone_height": {
           "label": "Mobile Image Height",
           "options__0": {
-            "label": "Fit Image"
+            "label": "Adapt to Image"
           },
           "options__1": {
             "label": "High"
@@ -1245,7 +1315,7 @@
           "label": "Background Color"
         },
         "group_header__4": {
-          "label": "Font"
+          "label": "Typography"
         },
         "co_type_title_font": {
           "label": "Title"
@@ -1254,14 +1324,14 @@
           "label": "Body"
         },
         "group_header__5": {
-          "label": "Color"
+          "label": "Colors"
         },
         "co_color_btn_bg": {
           "label": "Button Background"
         },
         "co_color_err_color": {
           "label": "Error Message",
-          "info": "Error message prompt and highlighted border"
+          "info": "Error message and highlighted border"
         },
         "co_color_msg_color": {
           "label": "Emphasis Message",
@@ -1319,7 +1389,7 @@
           "label": "Kakao"
         },
         "group_header__1": {
-          "label": "Share",
+          "label": "Sharing",
           "info": "Provide sharing options on product detail pages and blog pages"
         },
         "show_official_share_icon": {
@@ -1351,31 +1421,24 @@
     "search_behavior": {
       "name": "Search Behavior",
       "settings": {
-        "search_menu": {
-          "label": "Search Recommendation Menu",
-          "info": "Displayed when no content is entered in the search box"
-        },
         "show_search_goods_price": {
-          "label": "Show Recommended Product Prices"
+          "label": "Show Product Prices in Search Results"
         }
       }
     },
     "breadcrumb": {
       "name": "Breadcrumb",
       "settings": {
-        "show_pc_breadcrumb": {
-          "label": "Show Breadcrumb on Desktop"
-        },
-        "show_mobile_breadcrumb": {
-          "label": "Show Breadcrumb on Mobile"
+        "show_breadcrumb": {
+          "label": "Show Breadcrumb"
         }
       }
     },
     "favicon": {
-      "name": "Favicon",
+      "name": "Website Icon",
       "settings": {
         "favicon_image": {
-          "label": "Favicon",
+          "label": "Website Icon",
           "info": "Size: 32 x 32px"
         }
       }
