@@ -1,9 +1,10 @@
 import i18n from 'i18next'; // 确保你已经初始化了i18n
 import { useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router';
 
 import enTranslation from '@/locales/en.schema.json';
 import translation from '@/locales/zh-hans-cn.schema.json';
-import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { useAppDispatch } from '@/store/hooks';
 import { changeGlobalState } from '@/store/reducer/global';
 import { LanguageEnum } from '@/types/enum';
 import iframeCommunicator from '@/utils/IFrameCommunicator';
@@ -13,8 +14,9 @@ const languageMap = {
   [LanguageEnum.EN]: enTranslation,
 };
 export const useSendLanguageToEditor = () => {
-  const language = useAppSelector((state) => state.global.language);
   const dispatch = useAppDispatch();
+  const [searchParams] = useSearchParams(location.search);
+  const language = searchParams.get('language') as LanguageEnum;
   const initRef = useRef(language);
 
   useEffect(() => {
@@ -30,6 +32,7 @@ export const useSendLanguageToEditor = () => {
     });
 
     const language = initRef.current;
+    i18n.changeLanguage(language);
     iframeCommunicator.notifySectionSchemaLanguage({
       i18nKey: language,
       locales: languageMap[language],
