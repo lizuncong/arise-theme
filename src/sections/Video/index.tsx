@@ -21,6 +21,7 @@ const Video = memo((props: SectionConfigSchema) => {
       ].join(' ')}
     >
       <h2 className={sectionSetting.title_size.value as string}>{sectionSetting.title.value as string}</h2>
+
       <div className={styles.videoContainer}>
         {externalVideoUrl && <video src={externalVideoUrl}></video>}
         {internalVideoUrl && <video src={internalVideoUrl}></video>}
