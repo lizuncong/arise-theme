@@ -13,6 +13,8 @@ const Video = memo((props: SectionConfigSchema) => {
   const externalVideoUrl = sectionSetting.external_video?.value as string;
   const internalVideoUrl = sectionSetting.internal_video?.value as string;
   const autoPlay = sectionSetting.video_auto_play?.value as boolean;
+  const paddingTop = sectionSetting.padding_top?.value as number;
+  const paddingBottom = sectionSetting.padding_bottom?.value as number;
   useEffect(() => {
     if (autoPlay) {
       internalVideoRef.current?.play();
@@ -25,6 +27,7 @@ const Video = memo((props: SectionConfigSchema) => {
   return (
     <div
       id={sectionId}
+      style={{ paddingTop: `${paddingTop}px`, paddingBottom: `${paddingBottom}px` }}
       className={[
         'section',
         styles.container,
