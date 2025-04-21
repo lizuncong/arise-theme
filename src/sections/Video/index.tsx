@@ -15,6 +15,7 @@ const Video = memo((props: SectionConfigSchema) => {
     <div
       id={sectionId}
       className={[
+        'section',
         styles.container,
         sectionSetting.full_width.value && 'page-width',
         `color-scheme-${sectionSetting.color_scheme.value as string}`,
@@ -23,8 +24,8 @@ const Video = memo((props: SectionConfigSchema) => {
       <h2 className={sectionSetting.title_size.value as string}>{sectionSetting.title.value as string}</h2>
 
       <div className={styles.videoContainer}>
-        {externalVideoUrl && <video src={externalVideoUrl}></video>}
-        {internalVideoUrl && <video src={internalVideoUrl}></video>}
+        {externalVideoUrl && <video controls src={externalVideoUrl}></video>}
+        {internalVideoUrl && <video controls src={internalVideoUrl}></video>}
         {!externalVideoUrl &&
           !internalVideoUrl &&
           (cover.url ? <img src={cover.origin + cover.url} alt="" /> : <DefaultVideo />)}

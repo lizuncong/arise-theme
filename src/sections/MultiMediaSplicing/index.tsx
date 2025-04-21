@@ -9,7 +9,7 @@ const MultiMediaSplicing = memo((props: SectionConfigSchema) => {
   const sectionSetting = settingsData.settings;
   const blocks = settingsData.blocks || {};
   return (
-    <div id={sectionId} className={[styles.container].join(' ')}>
+    <div id={sectionId} className={[styles.container, 'section'].join(' ')}>
       <div className={styles.sectionType}>{type}</div>
       <div className={styles.settingheader}>Section Settings</div>
       <div className={styles.settings}>
