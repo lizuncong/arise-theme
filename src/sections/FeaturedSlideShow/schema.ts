@@ -9,16 +9,31 @@ const schema: SectionSchemaStruct = {
   max_blocks: 10,
   settings: [
     {
-      type: WidgetType.range,
       id: 'content_height',
       label: 'sections.featured-slideshow.settings.content_height.label',
       info: 'sections.featured-slideshow.settings.content_height.info',
-      default: 100,
-      min: 50,
-      max: 100,
-      step: 5,
-      unit: '%',
+      type: WidgetType.select,
+      default: '450px',
+      options: [
+        {
+          value: '450px',
+          label: '450px',
+        },
+        {
+          value: '550px',
+          label: '550px',
+        },
+        {
+          value: '650px',
+          label: '650px',
+        },
+        {
+          value: '750px',
+          label: '750px',
+        },
+      ],
     },
+
     {
       type: WidgetType.switch,
       id: 'show_progress',

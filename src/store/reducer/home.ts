@@ -28,7 +28,7 @@ const initialState: HomeSliceState = {
           type: SectionTypeEnum.SlideShow,
           settings: {
             content_height: {
-              value: 100,
+              value: '450px',
             },
             show_progress: {
               value: true,
