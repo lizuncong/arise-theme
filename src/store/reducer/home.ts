@@ -535,7 +535,7 @@ const initialState: HomeSliceState = {
                   value: 'cover',
                 },
                 product: {
-                  value: null,
+                  value: '商品Block',
                 },
               },
             },

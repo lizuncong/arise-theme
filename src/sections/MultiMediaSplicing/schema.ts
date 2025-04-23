@@ -64,6 +64,7 @@ const schema: SectionSchemaStruct = {
           type: WidgetType.product_picker,
           id: 'product',
           label: 'sections.multi-media-splicing.blocks.product.settings.product.label',
+          default: '商品',
         },
         {
           type: WidgetType.switch,
@@ -99,6 +100,7 @@ const schema: SectionSchemaStruct = {
           type: WidgetType.collection_picker,
           id: 'category',
           label: 'sections.multi-media-splicing.blocks.collection.settings.category.label',
+          default: '商品分类Block',
         },
         {
           id: 'image_padding',
@@ -195,24 +197,28 @@ const schema: SectionSchemaStruct = {
           value: 'right',
           label: 'sections.multi-media-splicing.settings.desktop_layout.options__1.label',
         },
-      ],
-    },
-    {
-      type: WidgetType.select,
-      id: 'mobile_layout',
-      label: 'sections.multi-media-splicing.settings.mobile_layout.label',
-      default: 'splicing',
-      options: [
-        {
-          value: 'splicing',
-          label: 'sections.multi-media-splicing.settings.mobile_layout.options__0.label',
-        },
         {
           value: 'list',
           label: 'sections.multi-media-splicing.settings.mobile_layout.options__1.label',
         },
       ],
     },
+    // {
+    //   type: WidgetType.select,
+    //   id: 'mobile_layout',
+    //   label: 'sections.multi-media-splicing.settings.mobile_layout.label',
+    //   default: 'splicing',
+    //   options: [
+    //     {
+    //       value: 'splicing',
+    //       label: 'sections.multi-media-splicing.settings.mobile_layout.options__0.label',
+    //     },
+    //     {
+    //       value: 'list',
+    //       label: 'sections.multi-media-splicing.settings.mobile_layout.options__1.label',
+    //     },
+    //   ],
+    // },
     {
       type: WidgetType.select,
       id: 'color_scheme',
@@ -281,7 +287,7 @@ const schema: SectionSchemaStruct = {
         {
           type: BlockTypeEnum.product,
           settings: {
-            product: null,
+            product: '商品Block',
             product_hover_show_next: false,
             image_padding: 'cover',
           },

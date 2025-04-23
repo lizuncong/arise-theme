@@ -19,7 +19,7 @@ const MultiMediaSplicing = memo((props: SectionConfigSchema) => {
   const paddingTop = sectionSetting.padding_top?.value as number;
   const paddingBottom = sectionSetting.padding_bottom?.value as number;
   const colorScheme = sectionSetting.color_scheme?.value as string;
-  console.log('MultiMediaSplicing=======', props);
+  const desktopLayout = sectionSetting.desktop_layout?.value as string;
   return (
     <div
       id={sectionId}
@@ -27,21 +27,28 @@ const MultiMediaSplicing = memo((props: SectionConfigSchema) => {
       className={['section', styles.container, `color-scheme-${colorScheme}`].join(' ')}
     >
       {sectionTitle && <h2 className={[styles.sectiontitle, sectionTitleSize].join(' ')}>{sectionTitle}</h2>}
-      <div className={styles.list}>
+      <div
+        className={[
+          desktopLayout !== 'list' && styles.splicing,
+          styles[desktopLayout],
+          !blockOrder.length && styles.hide,
+        ].join(' ')}
+      >
         {blockOrder.map((blockId) => {
           const block = blocks[blockId] || {};
           const blockType = block.type;
+          const blockSettings = block.settings || {};
           if (blockType === BlockTypeEnum.image) {
-            return <ImageBlock className={styles.block} key={blockId} {...block} />;
+            return <ImageBlock settings={blockSettings} className={styles.block} key={blockId} />;
           }
           if (blockType === BlockTypeEnum.video) {
-            return <VideoBlock className={styles.block} key={blockId} {...block} />;
+            return <VideoBlock settings={blockSettings} className={styles.block} key={blockId} />;
           }
           if (blockType === BlockTypeEnum.product) {
-            return <ProductBlock className={styles.block} key={blockId} {...block} />;
+            return <ProductBlock settings={blockSettings} className={styles.block} key={blockId} />;
           }
           if (blockType === BlockTypeEnum.collection) {
-            return <CollectionBlock className={styles.block} key={blockId} {...block} />;
+            return <CollectionBlock settings={blockSettings} className={styles.block} key={blockId} />;
           }
           return (
             <div className={styles.block} key={blockId}>
