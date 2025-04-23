@@ -7,7 +7,6 @@ interface ProductBlockProps {
 }
 const ProductBlock = memo((props: ProductBlockProps) => {
   const { className, settings } = props;
-  console.log('ProductBlock=======', settings);
   const productTitle = settings.product?.value as string;
   return <div className={[styles.block, className].join(' ')}>{productTitle}</div>;
 });
