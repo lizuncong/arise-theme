@@ -1,54 +1,51 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { SectionConfigSchema } from '@/types/section';
+import { BlockTypeEnum, SectionConfigSchema } from '@/types/section';
 
+import CollectionBlock from './Collection';
+import ImageBlock from './Image';
 import styles from './index.module.less';
+import ProductBlock from './Product';
+import VideoBlock from './Video';
 const MultiMediaSplicing = memo((props: SectionConfigSchema) => {
-  const { settingsData, type, sectionId } = props;
+  const { settingsData, sectionId } = props;
+  const { t } = useTranslation();
   const blockOrder = settingsData.block_order || [];
   const sectionSetting = settingsData.settings;
   const blocks = settingsData.blocks || {};
+  const sectionTitle = sectionSetting.title?.value as string;
+  const sectionTitleSize = sectionSetting.title_size?.value as string;
+  const paddingTop = sectionSetting.padding_top?.value as number;
+  const paddingBottom = sectionSetting.padding_bottom?.value as number;
+  const colorScheme = sectionSetting.color_scheme?.value as string;
+  console.log('MultiMediaSplicing=======', props);
   return (
-    <div id={sectionId} className={[styles.container, 'section'].join(' ')}>
-      <div className={styles.sectionType}>{type}</div>
-      <div className={styles.settingheader}>Section Settings</div>
-      <div className={styles.settings}>
-        {Object.keys(sectionSetting).map((key) => {
-          const value = JSON.stringify(sectionSetting[key].value);
-          // if (typeof value === 'object') {
-          //   value = JSON.stringify(value);
-          // }
-          return (
-            <div className={styles.settingitem} key={key}>
-              <span>{key}：</span>
-              {value}
-            </div>
-          );
-        })}
-      </div>
-      <div className={styles.blockContainer}>
+    <div
+      id={sectionId}
+      style={{ paddingTop: `${paddingTop}px`, paddingBottom: `${paddingBottom}px` }}
+      className={['section', styles.container, `color-scheme-${colorScheme}`].join(' ')}
+    >
+      {sectionTitle && <h2 className={[styles.sectiontitle, sectionTitleSize].join(' ')}>{sectionTitle}</h2>}
+      <div className={styles.list}>
         {blockOrder.map((blockId) => {
-          const blockConfig = blocks[blockId];
-          if (!blockConfig || blockConfig.disabled) return;
+          const block = blocks[blockId] || {};
+          const blockType = block.type;
+          if (blockType === BlockTypeEnum.image) {
+            return <ImageBlock className={styles.block} key={blockId} {...block} />;
+          }
+          if (blockType === BlockTypeEnum.video) {
+            return <VideoBlock className={styles.block} key={blockId} {...block} />;
+          }
+          if (blockType === BlockTypeEnum.product) {
+            return <ProductBlock className={styles.block} key={blockId} {...block} />;
+          }
+          if (blockType === BlockTypeEnum.collection) {
+            return <CollectionBlock className={styles.block} key={blockId} {...block} />;
+          }
           return (
-            <div id={blockId} key={blockId}>
-              <div className={styles.blocktype}>{blockConfig.type}</div>
-              <div className={[styles.settings, styles.block].join(' ')}>
-                <div>
-                  {Object.keys(blockConfig.settings).map((key) => {
-                    const value = JSON.stringify(blockConfig.settings[key].value);
-                    // if (typeof value === 'object') {
-                    //   value = JSON.stringify(value);
-                    // }
-                    return (
-                      <div className={styles.settingitem} key={key}>
-                        <span>{key}：</span>
-                        {value}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
+            <div className={styles.block} key={blockId}>
+              {t('home.block.notfound')}
             </div>
           );
         })}

@@ -59,7 +59,6 @@ const Home = memo(() => {
         const Comp = SectionCompMap[seConfigData.type];
         return <Comp key={seConfigData.sectionId} {...seConfigData} />;
       })}
-      <div className={styles.themeConfig}>{JSON.stringify(themeConfig)}</div>
     </div>
   );
 });

@@ -1,5 +1,8 @@
 {
   "home": {
-    "title": "Home"
+    "title": "Home",
+    "block": {
+      "notfound": "Block not found"
+    }
   }
 }
