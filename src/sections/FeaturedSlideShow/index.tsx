@@ -15,6 +15,7 @@ import { memo } from 'react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
+import DefaultImage from '@/assets/default_img.svg?react';
 import { SectionConfigSchema } from '@/types/section';
 
 import styles from './index.module.less';
@@ -61,9 +62,7 @@ const FeaturedSlideShow = memo((props: SectionConfigSchema) => {
           const origin = imgValue?.origin;
           return (
             <SwiperSlide key={blockId}>
-              <div className={styles.slide}>
-                {imgUrl ? <img src={origin + imgUrl} alt="" /> : <span>{block.type}</span>}
-              </div>
+              <div className={styles.slide}>{imgUrl ? <img src={origin + imgUrl} alt="" /> : <DefaultImage />}</div>
             </SwiperSlide>
           );
         })}
