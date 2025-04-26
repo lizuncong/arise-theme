@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSearchParams } from 'react-router';
 
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
+import { updateSectionConfigData } from '@/store/reducer/home';
 import { changeThemeState } from '@/store/reducer/theme';
 import themeSchema from '@/theme/schema';
 import { AriseThemeStyle, SectionConfigSchema, SectionTypeEnum } from '@/types/section';
@@ -31,16 +32,33 @@ const Home = memo(() => {
   const sectionConfigData = useAppSelector((state) => state.home.sectionConfigData);
   const [searchParams] = useSearchParams(location.search);
   const themeStyle = searchParams.get('themestyle') as AriseThemeStyle;
+  const ispreview = searchParams.get('ispreview') === '1';
+  const iseditor = searchParams.get('iseditor') === '1';
+
   const dispatch = useAppDispatch();
   const themeConfig = useAppSelector((state) => state.theme.themeConfig);
   useEffect(() => {
+    if (!iseditor) return;
     if (themeStyle) {
       const preset = themeSchema.presets.find((preset) => preset.type === themeStyle);
       dispatch(changeThemeState({ currentThemeStyle: themeStyle, themeConfig: preset }));
     }
     const off = iframeCommunicator.initWindowListener();
     return off;
-  }, [dispatch, themeStyle]);
+  }, [dispatch, themeStyle, iseditor]);
+  useEffect(() => {
+    // 预览，目前没有后端，纯前端，因此预览会从localstorage中获取数据
+    if (!ispreview) return;
+    const data = localStorage.getItem('editorConfigData');
+    if (!data) return;
+    try {
+      const { themeConfig, sectionConfigData } = JSON.parse(data);
+      dispatch(changeThemeState({ themeConfig }));
+      dispatch(updateSectionConfigData(sectionConfigData));
+    } catch (error) {
+      console.error('预览数据解析失败', error);
+    }
+  }, [dispatch, ispreview, themeStyle]);
   useEffect(() => {
     if (!themeConfig) return;
     themeConfigToCssVars(themeConfig);
