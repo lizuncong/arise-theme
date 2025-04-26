@@ -231,11 +231,11 @@
       "presets": {
         "presets__0": {
           "category": "图文展示",
-          "name": "特色轮播图1"
+          "name": "轮播图1"
         },
         "presets__1": {
           "category": "图文展示",
-          "name": "特色轮播图2"
+          "name": "轮播图2"
         }
       }
     },
